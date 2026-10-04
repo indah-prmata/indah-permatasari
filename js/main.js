@@ -241,7 +241,7 @@
     if (reduce) return;
     const name = isDesk() ? 'hero' : 'hero_m', gl = createGL($('.hero__gl'));
     if (!gl) return;
-    Promise.all([loadImg('img/' + name + '.webp?v=7'), loadImg('img/' + name + '-depth.jpg?v=7')]).then(r => {
+    Promise.all([loadImg('img/' + name + '.webp?v=8'), loadImg('img/' + name + '-depth.jpg?v=8')]).then(r => {
       if (gl.set(r[0], r[1])) { heroGL = gl; gl.draw(0, 0, 0, .3); $('.hero__gl').classList.add('is-on'); }
     }).catch(() => { });
   }

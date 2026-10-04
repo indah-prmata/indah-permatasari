@@ -36,7 +36,7 @@ SERIES = [
          note="Set penuh warna, dari studio merah muda sampai hutan tropis.",
          photos=[156, 162, 171, 178, 179, 157, 158, 159, 161, 165, 169, 155, 160, 168]),
 ]
-EXTRA = dict(hero=74, hero_m=74)   # full-bleed opener, desktop / phone (the phone one is a centred portrait crop)
+EXTRA = dict(hero=30, hero_m=74)   # full-bleed opener, desktop / phone (the phone one is a centred portrait crop)
 CROP_BOTTOM = {30: .07, 33: .07, 31: .035, 32: .035}   # trims a photographer signature off the bottom edge
 COVER = "editorial-010"            # featured cover: subject cut-out so the masthead sits behind her head
 
