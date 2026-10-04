@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indah Permatasari — Model, Jakarta</title>
+<meta name="description" content="Portofolio Indah Permatasari, model fashion dan beauty dari Jakarta. Editorial, kebaya, streetwear, dan beauty. Terbuka untuk katalog dan kampanye brand.">
+<meta name="theme-color" content="#121212">
+<meta property="og:title" content="Indah Permatasari — Model, Jakarta">
+<meta property="og:description" content="Portofolio model fashion dan beauty. Editorial, kebaya, streetwear, beauty.">
+<meta property="og:image" content="img/hero.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121212'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='22' fill='%23E8E6E1'%3Ei%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/clash-display-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css?v=5">
+</head>
+<body class="is-loading">
+
+<header>
+  <a class="brand" href="#top" aria-label="Indah Permatasari"><span class="brand__w">INDAH</span> <span class="brand__w">PERMATASARI</span></a>
+  <nav class="nav mono">
+    <a href="#tentang">Tentang</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#compcard" class="nav__opt">Comp card</a>
+    <a href="#kolaborasi">Kolaborasi</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- 1. Pembuka -->
+  <section class="hero" data-bg="#0C0C0C" data-fg="#E8E6E1">
+    <div class="hero__media">
+      <div class="hero__zoom">
+        <picture>
+          <source media="(max-width: 860px)" srcset="img/hero_m.webp">
+          <img class="hero__img" src="img/hero.webp" alt="Indah Permatasari, potret studio" fetchpriority="high">
+        </picture>
+        <canvas class="hero__gl" aria-hidden="true"></canvas>
+      </div>
+      <div class="hero__shade"></div>
+    </div>
+    <div class="hero__meta mono">
+      <span>Model · Jakarta</span>
+      <span class="hero__tag">Editorial, kebaya, dan wajah Jakarta.</span>
+      <span>2026</span>
+    </div>
+    <div class="hero__scroll mono" aria-hidden="true">Scroll</div>
+  </section>
+
+  <!-- 2. Tentang -->
+  <section class="about" id="tentang" data-bg="#111111" data-fg="#E8E6E1">
+    <div class="about__photo">
+      <div class="about__clip"><img src="img/full/editorial-002.webp" alt="Indah Permatasari duduk di kursi lipat, studio abu" loading="lazy"></div>
+      <div class="about__cap mono"><span>ED—002</span><span>Editorial</span></div>
+    </div>
+    <div class="about__text">
+      <p class="label mono">01 — Tentang</p>
+      <h2 class="h2" data-lines>Model fashion dan beauty <em>dari Jakarta</em></h2>
+      <div class="bio">
+        <p data-lines>Namaku Indah Permatasari. Aku model fashion dan beauty dari Jakarta.</p>
+        <p data-lines>Buatku, foto yang bagus selalu dimulai dari konsep. Sebelum pemotretan aku pelajari moodboard dan karakter bajunya, lalu mencari pose yang membuat pakaiannya terlihat paling baik.</p>
+        <p data-lines>Aku paling sering muncul di foto editorial dan fashion lokal. Kebaya, batik yang dipakai santai, sampai streetwear Jakarta. Di depan kamera, aku paling nyaman dengan konsep yang tenang dan detail kain yang terlihat jelas.</p>
+        <p data-lines>Aku terbuka untuk kerja sama katalog dan kampanye brand. Portofolio lengkapku ada di galeri, dan kontak kolaborasi ada di bagian paling bawah.</p>
+      </div>
+      <!-- GANTI: data kartu profil -->
+      <dl class="facts">
+        <div><dt class="mono">Tinggi</dt><dd>168 cm</dd></div>
+        <div><dt class="mono">Kota</dt><dd>Jakarta</dd></div>
+        <div><dt class="mono">Gaya</dt><dd>Editorial, kebaya, streetwear, beauty</dd></div>
+        <div><dt class="mono">Bahasa konten</dt><dd>Indonesia, Inggris</dd></div>
+        <div><dt class="mono">Kategori</dt><dd>Fashion, beauty, lifestyle</dd></div>
+        <div><dt class="mono">Kontak</dt><dd>WhatsApp, DM TikTok / Instagram</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="marq " aria-hidden="true"><div class="marq__in"><span><b>Editorial</b><em>noir</em><b>Nusantara</b><em>beauty</em><b>Street</b><em>warna</em></span><span><b>Editorial</b><em>noir</em><b>Nusantara</b><em>beauty</em><b>Street</b><em>warna</em></span></div></div>
+
+  <!-- 3. Galeri -->
+  <section class="gintro" id="galeri" data-bg="#111111" data-fg="#E8E6E1">
+    <p class="label mono">02 — Galeri</p>
+    <h2 class="h1" data-chars>Portofolio</h2>
+    <div class="gintro__row">
+      <p class="gintro__lede">Enam seri, <span data-count></span> foto. Geser ke bawah untuk menelusuri, klik foto untuk melihatnya bergerak.</p>
+      <div class="filter mono" role="tablist" aria-label="Filter seri"></div>
+    </div>
+  </section>
+  <div id="series"></div>
+
+  <!-- 5. Seri unggulan -->
+  <section class="feature" id="unggulan" data-bg="#0C0C0C" data-fg="#E8E6E1">
+    <button class="cover" data-open="editorial-010" aria-label="Buka foto sampul">
+      <span class="cover__img">
+        <img src="img/full/editorial-010.webp" alt="Indah Permatasari dengan gaun satin merah di depan tirai biru" loading="lazy">
+        <span class="cover__mast" aria-hidden="true">Indah</span>
+        <img src="img/cover-fg.webp" alt="" loading="lazy">
+      </span>
+      <span class="cover__lines mono" aria-hidden="true"><i>No. 01</i><i>Edisi 2026</i></span>
+      <span class="cover__foot mono" aria-hidden="true"><i>Satin merah,<br>tirai biru</i><i>ED—010</i></span>
+    </button>
+    <div class="feature__text">
+      <p class="label mono">03 — Seri unggulan</p>
+      <h2 class="h2" data-lines>Satin <em>merah</em></h2>
+      <p class="feature__p" data-lines>Lima frame dari satu set: gaun satin merah, tirai biru tua, dan satu lampu. Tenang, formal, dan kainnya yang bicara. Cocok sebagai acuan mood untuk katalog malam dan kampanye akhir tahun.</p>
+      <a class="link mono" href="#s-editorial" data-series="editorial">Lihat seri Editorial <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- 6. Comp card -->
+  <section class="comp" id="compcard" data-bg="#161412" data-fg="#E8E6E1">
+    <div class="comp__head">
+      <p class="label mono">04 — Comp card</p>
+      <h2 class="h2" data-lines>Comp <em>card</em></h2>
+    </div>
+    <div class="comp__cards">
+      <button class="deal" data-open="editorial-001"><img src="img/thumb/editorial-001.webp" alt="Full body, setelan hitam" loading="lazy"><span class="mono">01 · Full body</span></button>
+      <button class="deal" data-open="beauty-001"><img src="img/thumb/beauty-001.webp" alt="Headshot, cahaya hangat" loading="lazy"><span class="mono">02 · Headshot</span></button>
+      <button class="deal" data-open="editorial-006"><img src="img/thumb/editorial-006.webp" alt="Gaun malam hitam" loading="lazy"><span class="mono">03 · Evening</span></button>
+      <button class="deal" data-open="nusantara-001"><img src="img/thumb/nusantara-001.webp" alt="Kasual, rumah lama" loading="lazy"><span class="mono">04 · Casual</span></button>
+    </div>
+    <!-- GANTI: ukuran comp card -->
+    <dl class="sizes">
+      <div><dt class="mono">Tinggi</dt><dd>168 <small>cm</small></dd></div>
+      <div><dt class="mono">Dada</dt><dd>82 <small>cm</small></dd></div>
+      <div><dt class="mono">Pinggang</dt><dd>61 <small>cm</small></dd></div>
+      <div><dt class="mono">Pinggul</dt><dd>88 <small>cm</small></dd></div>
+      <div><dt class="mono">Sepatu</dt><dd>38 <small>EU</small></dd></div>
+      <div><dt class="mono">Rambut</dt><dd>Hitam</dd></div>
+      <div><dt class="mono">Mata</dt><dd>Cokelat tua</dd></div>
+      <div><dt class="mono">Basis</dt><dd>Jakarta</dd></div>
+    </dl>
+  </section>
+
+  <div class="marq marq--rev" aria-hidden="true"><div class="marq__in"><span><b>Katalog</b><em>kampanye</em><b>Lookbook</b><em>konten brand</em><b>Editorial</b><em>beauty</em></span><span><b>Katalog</b><em>kampanye</em><b>Lookbook</b><em>konten brand</em><b>Editorial</b><em>beauty</em></span></div></div>
+
+  <!-- 7. Kolaborasi -->
+  <section class="collab" id="kolaborasi" data-bg="#0C0C0C" data-fg="#E8E6E1">
+    <p class="label mono">05 — Kolaborasi</p>
+    <h2 class="h2 collab__h" data-lines>Katalog, kampanye, atau konten brand. <em>Mari bicara.</em></h2>
+    <!-- GANTI: nomor WhatsApp dan akun Instagram -->
+    <div class="collab__links">
+      <a class="cta" href="https://wa.me/6280000000000?text=Halo%20Indah%2C%20saya%20ingin%20kolaborasi." target="_blank" rel="noopener"><span class="mono">WhatsApp</span><b>Hubungi untuk kolaborasi</b><i aria-hidden="true">→</i></a>
+      <a class="cta" href="https://www.tiktok.com/@permatasari_official" target="_blank" rel="noopener"><span class="mono">TikTok</span><b>@permatasari_official</b><i aria-hidden="true">→</i></a>
+      <a class="cta" href="https://www.instagram.com/permatasari_official" target="_blank" rel="noopener"><span class="mono">Instagram</span><b>@permatasari_official</b><i aria-hidden="true">→</i></a>
+    </div>
+    <div class="bigname" aria-hidden="true" data-chars>Indah Permatasari</div>
+    <footer class="foot mono">
+      <span>© 2026 Indah Permatasari</span>
+      <span>Virtual model</span>
+      <span>Jakarta, Indonesia</span>
+      <a href="#top">Kembali ke atas ↑</a>
+    </footer>
+  </section>
+</main>
+
+<!-- 4. Foto yang bergerak saat diklik -->
+<div class="lb" aria-hidden="true" role="dialog" aria-label="Foto">
+  <div class="lb__bg"></div>
+  <div class="lb__stage">
+    <img class="lb__img" alt="">
+    <canvas class="lb__gl"></canvas>
+    <video class="lb__video" muted loop playsinline></video>
+  </div>
+  <div class="lb__cap mono"><span class="lb__code"></span><span class="lb__name"></span><span class="lb__num"></span></div>
+  <button class="lb__close mono" aria-label="Tutup">Tutup</button>
+  <button class="lb__nav lb__prev" aria-label="Foto sebelumnya">←</button>
+  <button class="lb__nav lb__next" aria-label="Foto berikutnya">→</button>
+</div>
+
+<div class="aura" aria-hidden="true"></div>
+<div class="count mono" aria-hidden="true">000</div>
+<div class="cur-dot" aria-hidden="true"></div>
+<div class="cur-ring" aria-hidden="true">
+  <svg viewBox="0 0 100 100"><defs><path id="circ" d="M50,50 m-39,0 a39,39 0 1,1 78,0 a39,39 0 1,1 -78,0"/></defs>
+    <text><textPath href="#circ" textLength="238">LIHAT FOTO  ·  BUKA  ·  LIHAT FOTO  ·  BUKA  ·</textPath></text></svg>
+  <i>↗</i>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<script src="data/photos.js?v=5"></script>
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/main.js?v=5"></script>
+</body>
+</html>
