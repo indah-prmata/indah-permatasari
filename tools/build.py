@@ -36,7 +36,7 @@ SERIES = [
          note="Set penuh warna, dari studio merah muda sampai hutan tropis.",
          photos=[156, 162, 171, 178, 179, 157, 158, 159, 161, 165, 169, 155, 160, 168]),
 ]
-EXTRA = dict(hero=30, hero_m=64)   # full-bleed opener, desktop / phone
+EXTRA = dict(hero=74, hero_m=74)   # full-bleed opener, desktop / phone (the phone one is a centred portrait crop)
 CROP_BOTTOM = {30: .07, 33: .07, 31: .035, 32: .035}   # trims a photographer signature off the bottom edge
 COVER = "editorial-010"            # featured cover: subject cut-out so the masthead sits behind her head
 
@@ -130,6 +130,8 @@ def main():
     if not data_only:
         for name, i in EXTRA.items():
             im = Image.fromarray(grade(clean_corner(source(i))))
+            if name == "hero_m" and im.width > im.height:
+                w = int(im.height * .6); x = (im.width - w) // 2; im = im.crop((x, 0, x + w, im.height))
             big = fit(im, 2400 if name == "hero" else 1400)
             big.save(os.path.join(ROOT, "img", name + ".webp"), "WEBP", quality=82, method=5)
             depth_map(big).save(os.path.join(ROOT, "img", name + "-depth.jpg"), quality=72)
