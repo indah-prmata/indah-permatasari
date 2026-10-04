@@ -14,6 +14,7 @@
   const thumb = p => 'img/thumb/' + p.id + '.webp', full = p => 'img/full/' + p.id + '.webp';
 
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });   // the address bar sliding away must not re-pin the reels
   gsap.defaults({ ease: 'expo.out', duration: 1 });
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   scrollTo(0, 0);
@@ -138,9 +139,9 @@
   }).join('');
   $$('.card__frame img').forEach(img => { const on = () => img.classList.add('is-in'); if (img.complete && img.naturalWidth) on(); else img.addEventListener('load', on, { once: true }); });
 
-  /* ---------- gallery: pinned horizontal reel with 3D tilt (desktop) ---------- */
+  /* ---------- gallery: pinned horizontal reel with 3D tilt (all screen sizes) ---------- */
   const mm = gsap.matchMedia();
-  mm.add('(min-width: 861px)', () => {
+  mm.add('(min-width: 1px)', () => {
     const undo = [];
     $$('.series').forEach(sec => {
       const track = $('.series__track', sec), cards = $$('.card', track).map(el => ({ el, img: $('img', el), frame: $('.card__frame', el), l: 0, w: 0 }));
@@ -187,32 +188,10 @@
     const tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: 'top 58%', once: true } });
     tl.from($$('.series__title .ch > span', sec), { yPercent: 118, duration: 1.2, stagger: .045 }, 0)
       .from($$('.series__title sup, .series__head span', sec), { opacity: 0, y: 14, duration: 1, stagger: .08 }, .25);
-    mm.add('(min-width: 861px)', () => {
+    mm.add('(min-width: 1px)', () => {
       if (tl.progress() < 1) tl.fromTo(view, { clipPath: 'inset(100% 0% 0% 0%)', y: 90 }, { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: 1.5, ease: 'expo.inOut', onComplete: () => gsap.set(view, { clearProps: 'clipPath,transform' }) }, .05);
       return () => gsap.set(view, { clearProps: 'clipPath,transform' });
     });
-  });
-
-  // phones: each photo rises in and settles as it scrolls into view
-  mm.add('(max-width: 860px)', () => {
-    if (reduce) return;
-    const frames = $$('.card__frame');
-    gsap.set(frames, { opacity: 0, y: 46 });   // no clip-path here: Chrome does not paint clipped boxes inside CSS columns
-    let n = 0, t = 0;
-    const io = new IntersectionObserver(entries => entries.forEach(en => {
-      if (!en.isIntersecting) return;
-      io.unobserve(en.target);
-      const card = en.target, img = $('img', card);
-      const now = performance.now(); n = now - t < 120 ? n + 1 : 0; t = now;   // cards arriving together get a small stagger
-      const delay = n * .12, show = () => {
-        gsap.to($('.card__frame', card), { opacity: 1, y: 0, duration: 1.3, delay });
-        gsap.fromTo(img, { scale: 1.3 }, { scale: 1, duration: 1.8, delay });
-      };
-      img.loading = 'eager';   // load ahead of the reveal instead of waiting for the lazy-load heuristic
-      if (img.complete && img.naturalWidth) show(); else { img.addEventListener('load', show, { once: true }); img.addEventListener('error', show, { once: true }); }
-    }), { rootMargin: '0px 0px 40% 0px' });
-    $$('.card').forEach(c => io.observe(c));
-    return () => { io.disconnect(); gsap.set(frames, { clearProps: 'opacity,transform' }); };
   });
 
   /* ---------- filter ---------- */
@@ -448,7 +427,7 @@
         if (m.x <= -m.half) m.x += m.half; if (m.x > 0) m.x -= m.half;
         m.el.style.transform = 'translate3d(' + m.x.toFixed(1) + 'px,0,0)';
       });
-      const target = isDesk() ? Math.max(-7, Math.min(7, v * .09)) : 0;
+      const target = Math.max(-7, Math.min(7, v * .09));
       if (Math.abs(target - skew) > .01) { skew += (target - skew) * .12; tracks.forEach(tr => gsap.set(tr, { skewX: -skew })); }
     });
   }

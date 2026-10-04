@@ -96,7 +96,7 @@ main{position:relative;z-index:1}
 
 .series{position:relative}
 .series.is-hidden{display:none}
-.series__pin{position:relative;height:100vh;min-height:560px;overflow:hidden;box-shadow:0 -50px 90px rgba(0,0,0,.42)}
+.series__pin{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;box-shadow:0 -50px 90px rgba(0,0,0,.42)}
 .series__in{position:absolute;inset:0;will-change:transform}
 .series__title .ch{padding:0 .14em .16em;margin:0 -.14em -.16em}
 .series__title{position:absolute;left:var(--pad);top:15.5vh;display:flex;align-items:flex-start;font-family:var(--serif);font-style:italic;font-size:clamp(52px,6.6vw,118px);font-weight:400;letter-spacing:-.02em;line-height:.9;white-space:nowrap;will-change:transform;pointer-events:none}
@@ -232,18 +232,15 @@ main{position:relative;z-index:1}
   .about__photo{position:relative;top:0;width:78%}
   .facts{grid-template-columns:1fr}
   .gintro__row{flex-direction:column;align-items:flex-start}
-  .series{padding:70px var(--pad) 30px}
-  .series__pin{height:auto;min-height:0;overflow:visible;box-shadow:none}
-  .series__in{position:static}
-  .series__title{position:static;font-size:15vw}
-  .series__head{position:static;margin:14px 0 26px;flex-wrap:wrap}
-  .series__view{position:static;height:auto;perspective:none}
-  .series__track{position:static;display:block;columns:2;column-gap:10px;padding:0;height:auto}
-  .card{display:block;width:100%;height:auto;margin:0 0 34px;break-inside:avoid}
-  .card__frame{position:relative;inset:auto;aspect-ratio:var(--ar)}
-  .card__frame img{transform:none}
-  .card__meta{position:static;margin-top:7px;font-size:9px}
-  .series__bar{display:none}
+  /* phones use the same pinned 3D reel as desktop, only tighter */
+  .series__pin{min-height:0}
+  .series__title{font-size:15vw;top:13svh}
+  .series__head{top:66px}
+  .series__head span:nth-child(2){display:none}
+  .series__view{height:52svh;bottom:11svh;perspective:900px}
+  .series__track{gap:14px}
+  .card__meta{font-size:9px}
+  .series__bar{bottom:4.5svh}
   .feature{grid-template-columns:1fr}
   .cover{justify-self:start}
   .comp__cards{grid-template-columns:1fr 1fr;row-gap:44px}
